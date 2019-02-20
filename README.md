@@ -1,7 +1,7 @@
 # cancer_subtyping
 The purpose of the project is to stratify the cancer patients into clinical associated subgroups to assist the personalized diagnosis and treatment. 
 The algorithm used in this study is stacked denoising autoencoders (SdA)
-To run the programs, please change the directory for the input datasets if you save the input datasets in a different directory. And also make the directory for saving the output and add it to the program.
+To run the programs, please change the directory for the input datasets if you save the input datasets in a different directory. And also make the directory for saving the output and add it to the program.The datsets are too large to upload but they are available upon request.
 
 To best the optimal parameters for the architecture of the SdA, we tested a serial of parameters in a wide range: the learning rate at 0.005, 0.01, 0.05, 0.1, 0.15, 0.2, 0.3 and 0.5; the corruption level at 0.01, 0.05, 0.1, 0.2 and 0.5; the batch size at 10, 20, 50 and 100; and the epoch size at 1000, 2000 and 5000. The program used for this testing is subtype_parameters_test.py. Depending on the computational resources, it may take weeks or months to run subtype_parameters_test.py.
 
