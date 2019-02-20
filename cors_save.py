@@ -29,12 +29,12 @@ def mirna_cor_save(model_trained_2, model_trained_21, model_trained_1, model_tra
         [mirna1_cors, mirna1_ave_cor] = cor_pearson(mirna_expr_org, mirna0.eval())
         [mirna2_cors, mirna2_ave_cor] = cor_pearson(mirna_expr_org, mirna4.eval())
 
-        filename=result_dir + "cors_mirna_final.txt"
+        filename=result_dir + "cors_mirna_LJHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [mirna2_ave_cor], delimiter="\t")
         np.savetxt(file_handle, mirna2_cors, delimiter="\t")
         file_handle.close()
-        filename=result_dir + "cors_mirna_hidden.txt"
+        filename=result_dir + "cors_mirna_LIHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [mirna1_ave_cor], delimiter="\t")
         np.savetxt(file_handle, mirna1_cors, delimiter="\t")
@@ -51,12 +51,12 @@ def prt_cor_save(model_trained_2, model_trained_21, model_trained_1, model_train
         [prt1_cors, prt1_ave_cor] = cor_pearson(prt_expr_org, prt0.eval())
         [prt2_cors, prt2_ave_cor] = cor_pearson(prt_expr_org, prt4.eval())
 
-        filename=result_dir + "cors_prt_final.txt"
+        filename=result_dir + "cors_prt_LJHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [prt2_ave_cor], delimiter="\t")
         np.savetxt(file_handle, prt2_cors, delimiter="\t")
         file_handle.close()
-        filename=result_dir + "cors_prt_hidden.txt"
+        filename=result_dir + "cors_prt_LIHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [prt1_ave_cor], delimiter="\t")
         np.savetxt(file_handle, prt1_cors, delimiter="\t")
@@ -75,12 +75,12 @@ def gn_cor_save(model_trained_2, model_trained_21, model_trained_1, model_traine
         [gn1_cors, gn1_ave_cor] = cor_pearson(gn_expr_org, gn01.eval())
         [gn2_cors, gn2_ave_cor] = cor_pearson(gn_expr_org, gn5.eval())
 
-        filename=result_dir + "cors_gn_final.txt"
+        filename=result_dir + "cors_gn_LJHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [gn2_ave_cor], delimiter="\t")
         np.savetxt(file_handle, gn2_cors, delimiter="\t")
         file_handle.close()
-        filename=result_dir + "cors_gn_hidden.txt"
+        filename=result_dir + "cors_gn_LIHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [gn1_ave_cor], delimiter="\t")
         np.savetxt(file_handle, gn1_cors, delimiter="\t")
@@ -99,12 +99,12 @@ def methy_cor_save(model_trained_2, model_trained_21, model_trained_1, model_tra
         [methy1_cors, methy1_ave_cor] = cor_pearson(methy_expr_org, methy01.eval())
         [methy2_cors, methy2_ave_cor] = cor_pearson(methy_expr_org, methy5.eval())
 
-        filename=result_dir + "cors_methy_final.txt"
+        filename=result_dir + "cors_methy_LJHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [methy2_ave_cor], delimiter="\t")
         np.savetxt(file_handle, methy2_cors, delimiter="\t")
         file_handle.close()
-        filename=result_dir + "cors_methy_hidden.txt"
+        filename=result_dir + "cors_methy_LIHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [methy1_ave_cor], delimiter="\t")
         np.savetxt(file_handle, methy1_cors, delimiter="\t")
@@ -123,12 +123,12 @@ def cna_cor_save(model_trained_2, model_trained_21, model_trained_1, model_train
         [cna1_cors, cna1_ave_cor] = cor_pearson(cna_expr_org, cna01.eval())
         [cna2_cors, cna2_ave_cor] = cor_pearson(cna_expr_org, cna5.eval())
 
-        filename=result_dir + "cors_cna_final.txt"
+        filename=result_dir + "cors_cna_LJHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [cna2_ave_cor], delimiter="\t")
         np.savetxt(file_handle, cna2_cors, delimiter="\t")
         file_handle.close()
-        filename=result_dir + "cors_cna_hidden.txt"
+        filename=result_dir + "cors_cna_LIHL.txt"
         file_handle=file(filename,'w')
         np.savetxt(file_handle, [cna1_ave_cor], delimiter="\t")
         np.savetxt(file_handle, cna1_cors, delimiter="\t")
@@ -141,15 +141,15 @@ def save_final_para(result_dir, com_hidden_x_extr_2, model_trained_2):
 	file_handle=file(filename,'w')
 	np.savetxt(file_handle, com_hidden_x_extr_2, delimiter="\t", header=" the values in the second combined hidden layer")
 	file_handle.close()
-	filename=result_dir + "com_h2_parameters_w.txt"
+	filename=result_dir + "com_h2_para_w.txt"
 	file_handle=file(filename,'w')
 	np.savetxt(file_handle, model_trained_2.params[0].get_value(), delimiter="\t", header="the parameter of w in the second hidden layer")
 	file_handle.close()
-	filename=result_dir + "com_h2_parameters_bh.txt"
+	filename=result_dir + "com_h2_para_bh.txt"
 	file_handle=file(filename,'w')
 	np.savetxt(file_handle, model_trained_2.params[1].get_value(), delimiter="\t", header="the parameter of b hidden in the second hidden layer")
 	file_handle.close()
-	filename=result_dir + "com_h2_parameters_bv.txt"
+	filename=result_dir + "com_h2_para_bv.txt"
 	file_handle=file(filename,'w')
 	np.savetxt(file_handle, model_trained_2.params[2].get_value(), delimiter="\t", header="the parameter of b visible in the second hidden layer")
 	file_handle.close()
