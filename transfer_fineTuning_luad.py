@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """
-Multi-modal classification using denosing autoencoder
+Subtype LUAD patients based on the models learned from KIRC patients
+The current version of the script doesnot load the KIRC model variables directly but re-run the SdA with KIRC dataset to obtain the KIRC model variables. The hidden layer of KIRC model is used as a pretrain model and then do fine tuning the remaining variables using the LUAD datasets.
+
+Run on the full LUAD datasets
 
 Tongjun Gu
 tgu@ufl.edu
