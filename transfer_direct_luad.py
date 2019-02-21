@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 """
 Subtype LUAD patients using the models learned directly from KIRC patients
-The current version of the script doesnot load the model variables directly but re-run the SdA with KIRC dataset to obtain the KIRC model variables
+The current version of the script doesnot load the KIRC model variables directly but re-run the SdA with KIRC dataset to obtain the KIRC model variables
 
 Run on the full datasets of LUAD
 
