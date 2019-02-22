@@ -6,9 +6,7 @@ To best the optimal parameters for the architecture of the SdA, we tested a seri
 
 After selecting the best parameters, we ran subtype_bestPara.py on the whole datasets and saved the model variables for using in similar tasks in the directory of KIRC_model_variables. The details about each variable is in the readme.txt in the directory.
 
-transfer_direct_luad.py was run to subgroup the lung cancer patients using the KIRC model directly.
-
-transfer_fineTuning_luad.py was run to subgroup the lung cancer patients too but using the KIRC model as a pre-trained model.
+transfer_fineTuning_luad.py was run to subgroup the lung cancer patients using the KIRC model as a pre-trained model.
 
 All other scripts were called by the above programs. Some of the scripts were adapted from https://github.com/yifeng-li/DECRES: classification.py, dA.py and logistic_sgd.py
 
