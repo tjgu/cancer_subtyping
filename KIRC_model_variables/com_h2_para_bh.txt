@@ -1,0 +1,2 @@
+# the parameter of b hidden in the second hidden layer
+-3.403254087634766667e-01
