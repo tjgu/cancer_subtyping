@@ -111,8 +111,8 @@ class dA_finetuning(object):
             # converted using asarray to dtype
             # theano.config.floatX so that the code is runable on GPU
             #print 'Numbers of visible, and hidden units: %d, %d:' % n_visible,n_hidden 
-            print "n_hidden=" + str(_hidden)
-            print "n_visible=" + str(n_visible)            
+            print ("n_hidden=" + str(_hidden))
+            print ("n_visible=" + str(n_visible))            
             initial_W = numpy.asarray(numpy_rng.uniform(
                       low=-4 * numpy.sqrt(6. / (n_hidden + n_visible)),
                       high=4 * numpy.sqrt(6. / (n_hidden + n_visible)),
@@ -185,7 +185,11 @@ class dA_finetuning(object):
         Computes the reconstructed input given the values of the
         hidden layer
         """
-        return  T.nnet.sigmoid(T.dot(hidden, self.W_prime) + self.b_prime)
+        print("hidden ndim=" + str(hidden.type.ndim))
+        if self.W.type.ndim == 1 and hidden.type.ndim == 1:
+            return T.nnet.sigmoid(T.dot(hidden.dimshuffle([0,'x']), self.W_prime.dimshuffle(['x',0])) + self.b_prime)
+        else:
+            return  T.nnet.sigmoid(T.dot(hidden, self.W_prime) + self.b_prime)
 
     def get_cost_updates(self, corruption_level, learning_rate, cost_measure="cross_entropy"):
         """ This function computes the cost and the updates for one trainng
@@ -288,7 +292,7 @@ def train_model(train_set_x_org=None, training_epochs=1000, batch_size=100,
     # train the model using training set
     start_time=time.clock()
     
-    for epoch in xrange(training_epochs):
+    for epoch in range(training_epochs):
         c=[] # costs of all minibatches of this epoch
         epoch_change_count=epoch_change_count+1
         if epoch_change_count % max_num_epoch_change_learning_rate ==0:
@@ -297,12 +301,12 @@ def train_model(train_set_x_org=None, training_epochs=1000, batch_size=100,
             cl.change_max_num_epoch_change_learning_rate(max_num_epoch_change_learning_rate,max_num_epoch_change_rate)
             max_num_epoch_not_improve=3*max_num_epoch_change_learning_rate            
             epoch_change_count=0
-        for batch_index in xrange(n_train_batches):
+        for batch_index in range(n_train_batches):
             c_batch=train_da_one_iteration(batch_index)
-#            print "function output=" + str(c_batch) # c_batch is the cost
+            #print ("function output=" + str(c_batch) + " for " + str(batch_index)) # c_batch is the cost
             c.append(c_batch)
         this_cost=numpy.mean(c)
-        print 'Training eopch: %d, cost: %f' % (epoch,this_cost)
+        print ('Training eopch: %d, cost: %f' % (epoch,this_cost))
         if this_cost<best_cost:
             best_cost=this_cost
             num_epoch_not_improve=0
@@ -312,7 +316,7 @@ def train_model(train_set_x_org=None, training_epochs=1000, batch_size=100,
                 break
     end_time=time.clock()
     training_time=end_time-start_time
-    print 'Training time: %f' %(training_time/60)
+    print ('Training time: %f' %(training_time/60))
     
     # return the trained model and the reduced training set
     extracted=da.get_hidden_values(train_set_x)
