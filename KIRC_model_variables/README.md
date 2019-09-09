@@ -9,6 +9,6 @@ For the gene expression, methylation and CNA, there are six variables with three
 
 There are three joint hidden layers with name of com_h0, com_h1 and com_h2. There are three variables for each layer: w, hv and hb. 
 
-The files with names starting with "cors_" are the files containing the correlations calculated with the reconstructed input from the LJHL and LIHL.
+Some of the parameters are too larget to upload, thus they are split into two connected parts, such as methy_para_w_h1.pkl and gn.expr_para_w_h1.pkl.
 
-Some of the parameters are too larget to upload but they are availabe upon request.
+The hidden values that are used for subtyping are in the file of com_h2_values.txt.
