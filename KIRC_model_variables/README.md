@@ -1,4 +1,4 @@
-#KIRC_model_variables
+# KIRC_model_variables
 
 This directory contains the model variables learned from the KIRC datasets: mirna.expr (miRNA expression), protein.expr (protein expression), gn.expr (gene expression), methy (methylation), cna.nocnv.nodup (CNA). Initially the variables were saved in .txt files but they were too large to upload, thus, they were now saved in .h5 using h5py.
 
