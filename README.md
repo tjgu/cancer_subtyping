@@ -1,4 +1,6 @@
 # cancer_subtyping
+An update of the programs using tensorflow 2.0 is at https://github.com/zhaoxiwu2003/subtype_cancer_using_denoising_autoencoder_with_tied_weights
+
 The purpose of the project is to stratify the cancer patients into clinical associated subgroups to assist the personalized diagnosis and treatment. 
 The algorithm used in this study is stacked denoising autoencoders (SdA).
 
